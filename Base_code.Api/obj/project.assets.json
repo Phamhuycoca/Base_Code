@@ -1767,6 +1767,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Base_code.Domain": "1.0.0",
           "FluentValidation.DependencyInjectionExtensions": "11.9.0",
           "Microsoft.EntityFrameworkCore": "6.0.27",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.27",
@@ -1778,6 +1779,35 @@
         },
         "runtime": {
           "bin/placeholder/Base_code.Application.dll": {}
+        }
+      },
+      "Base_code.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.27",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.27"
+        },
+        "compile": {
+          "bin/placeholder/Base_code.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Base_code.Domain.dll": {}
+        }
+      },
+      "Base_code.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Base_code.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.27",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.27"
+        },
+        "compile": {
+          "bin/placeholder/Base_code.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Base_code.Infrastructure.dll": {}
         }
       }
     }
@@ -5647,11 +5677,22 @@
       "type": "project",
       "path": "../Base_code.Application/Base_code.Application.csproj",
       "msbuildProject": "../Base_code.Application/Base_code.Application.csproj"
+    },
+    "Base_code.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Base_code.Domain/Base_code.Domain.csproj",
+      "msbuildProject": "../Base_code.Domain/Base_code.Domain.csproj"
+    },
+    "Base_code.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Base_code.Infrastructure/Base_code.Infrastructure.csproj",
+      "msbuildProject": "../Base_code.Infrastructure/Base_code.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Base_code.Application >= 1.0.0",
+      "Base_code.Infrastructure >= 1.0.0",
       "CloudinaryDotNet >= 1.26.0",
       "Microsoft.EntityFrameworkCore >= 6.0.27",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.27",
@@ -5690,6 +5731,9 @@
           "projectReferences": {
             "F:\\Base_Code\\Base_code\\Base_code.Application\\Base_code.Application.csproj": {
               "projectPath": "F:\\Base_Code\\Base_code\\Base_code.Application\\Base_code.Application.csproj"
+            },
+            "F:\\Base_Code\\Base_code\\Base_code.Infrastructure\\Base_code.Infrastructure.csproj": {
+              "projectPath": "F:\\Base_Code\\Base_code\\Base_code.Infrastructure\\Base_code.Infrastructure.csproj"
             }
           }
         }

@@ -1,61 +1,73 @@
-﻿using Base_code.Application.Exceptions;
+﻿using Base_code.Api.Exceptions;
+using Base_code.Application.Exceptions;
+using Base_code.Application.Interfaces.Concrete;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Net;
 
 namespace Base_code.Api.Middleware
 {
     public class ExceptionMiddleware
     {
-        private readonly RequestDelegate _next;
-        public ExceptionMiddleware(RequestDelegate next)
+        private RequestDelegate _next;
+        private readonly ILogger<ExceptionMiddleware> _logger;
+
+        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
+
         public async Task InvokeAsync(HttpContext httpContext)
         {
             try
             {
                 await _next(httpContext);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                await HandleExceptionAsync(httpContext, ex);
+                await HandleExceptionAsync(httpContext, e);
             }
         }
-        private Task HandleExceptionAsync(HttpContext context, Exception exception)
+
+        private Task HandleExceptionAsync(HttpContext httpContext, Exception e)
         {
-            context.Response.ContentType = "application/json";
-            HttpStatusCode statusCode = HttpStatusCode.InternalServerError;
-            string result = JsonConvert.SerializeObject(new ErrorDeatils
+            httpContext.Response.ContentType = "application/json";
+            httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            string message = "Internal Server Error";
+            if (e.InnerException is ApiException || e.GetType() == typeof(ApiException))
             {
-                ErrorMessage = exception.Message,
-                ErrorType = "Failure"
-            });
-
-            switch (exception)
-            {
-                case BadRequestException badRequestException:
-                    statusCode = HttpStatusCode.BadRequest;
-                    break;
-                case ValidationException validationException:
-                    statusCode = HttpStatusCode.BadRequest;
-                    result = JsonConvert.SerializeObject(validationException.Errors);
-                    break;
-                case NotFoundException notFoundException:
-                    statusCode = HttpStatusCode.NotFound;
-                    break;
-                default:
-                    break;
+                var ex = e.InnerException != null ? (ApiException)e.InnerException : (ApiException)e;
+                httpContext.Response.StatusCode = ex.StatusCode;
+                var apierror = JsonConvert.SerializeObject(new ErrorResponse(ex.StatusCode, ex.Errors), new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+                return httpContext.Response.WriteAsync(apierror);
             }
 
-            context.Response.StatusCode = (int)statusCode;
-            return context.Response.WriteAsync(result);
-        }
-    }
+            List<string> exceptions = new List<string>();
 
-    public class ErrorDeatils
-    {
-        public string ErrorType { get; set; }
-        public string ErrorMessage { get; set; }
+            if (e.InnerException != null)
+            {
+                exceptions.Add(e.InnerException.ToString());
+                if (e.InnerException.Message != null)
+                {
+                    exceptions.Add(e.InnerException.Message);
+                }
+                else if (e.InnerException.InnerException.Message != null)
+                {
+                    exceptions.Add(e.InnerException.InnerException.Message);
+                }
+            }
+            else if (e.Message != null)
+            {
+                exceptions.Add(e.Message);
+            }
+            var errorlogDetail = new
+            {
+                Errors = exceptions,
+            };
+            _logger.LogError("Unknown error occurred {@Error}", errorlogDetail);
+            var error = JsonConvert.SerializeObject(new ErrorResponse(httpContext.Response.StatusCode, message), new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+            return httpContext.Response.WriteAsync(error);
+        }
     }
 }

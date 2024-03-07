@@ -782,6 +782,20 @@
             "rid": "win"
           }
         }
+      },
+      "Base_code.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.27",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.27"
+        },
+        "compile": {
+          "bin/placeholder/Base_code.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Base_code.Domain.dll": {}
+        }
       }
     }
   },
@@ -2003,10 +2017,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Base_code.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Base_code.Domain/Base_code.Domain.csproj",
+      "msbuildProject": "../Base_code.Domain/Base_code.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Base_code.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.27",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.27",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.27"
@@ -2038,7 +2058,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Base_Code\\Base_code\\Base_code.Domain\\Base_code.Domain.csproj": {
+              "projectPath": "F:\\Base_Code\\Base_code\\Base_code.Domain\\Base_code.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
