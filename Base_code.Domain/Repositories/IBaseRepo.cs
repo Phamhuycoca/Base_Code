@@ -11,9 +11,9 @@ namespace Base_code.Domain.Repositories
     {
         List<T> ListData();
         T GetById(long id);
-        bool Create(T entity);
-        bool Update(T entity);
-        bool Delete(long id);
+        void Create(T entity);
+        void Update(T entity);
+        void Delete(long id);
         List<T> Search(string search);
 
     }

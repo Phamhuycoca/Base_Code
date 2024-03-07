@@ -14,13 +14,15 @@ namespace Base_code.Application.Interfaces.Concrete
     {
         public bool Success { get; } = true;
         public T Data { get; }
-
         public int StatusCode { get; }
         public string Message { get; set; }
 
+        public int totalItems { get; }
+
         [JsonConstructor]
-        public DataResponse(T data, int statuscode)
+        public DataResponse(T data,int totalItems, int statuscode)
         {
+            this.totalItems = totalItems;
             Data = data;
             StatusCode = statuscode;
         }
@@ -30,6 +32,7 @@ namespace Base_code.Application.Interfaces.Concrete
             Data = data;
             StatusCode = statuscode;
             Message = message;
+
         }
     }
 }

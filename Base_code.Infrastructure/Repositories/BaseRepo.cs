@@ -26,38 +26,7 @@ namespace Base_code.Infrastructure.Repositories
         {
             return _dbSet.Find(id);
         }
-        public bool Create(T entity)
-        {
-            if (!_dbSet.Any(e => e == entity))
-            {
-                _dbSet.Add(entity);
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-        public bool Update(T entity)
-        {
-            var entry = _context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-            {
-                var existingEntity = _dbSet.Find(GetKeyValues(entity).ToArray());
-                if (existingEntity == null)
-                {
-                    return false;
-                }
-                _context.Entry(existingEntity).CurrentValues.SetValues(entity);
-            }
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
-            return true;
-        }
+       
         private IEnumerable<object> GetKeyValues(T entity)
         {
             var keyProperties = _context.Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties;
@@ -66,21 +35,68 @@ namespace Base_code.Infrastructure.Repositories
                 yield return property.PropertyInfo.GetValue(entity);
             }
         }
-        public bool Delete(long id)
-        {
-            var category = _dbSet.Find(id);
-            if (category == null)
-            {
-                return false;
-            }
-            _dbSet.Remove(category);
-            _context.SaveChanges();
-            return true;
-        }
+       
 
         public List<T> Search(string search)
         {
             return _dbSet.Where(x => x.ToString().Contains(search)).ToList();
+        }
+
+        public void Create(T entity)
+        {
+            try
+            {
+                if (!_dbSet.Any(e => e == entity))
+                {
+                    _dbSet.Add(entity);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Create method: {ex.Message}");
+                throw;
+            }
+        }
+
+        public void Update(T entity)
+        {
+            try
+            {
+                var entry = _context.Entry(entity);
+                if (entry.State == EntityState.Detached)
+                {
+                    var existingEntity = _dbSet.Find(GetKeyValues(entity).ToArray());
+                    if (existingEntity != null)
+                    {
+                        _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+                        _context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Update method: {ex.Message}");
+                throw; 
+            }
+        }
+
+        public void Delete(long id)
+        {
+            try
+            {
+                var entity = _dbSet.Find(id);
+                if (entity != null)
+                {
+                    _dbSet.Remove(entity);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Delete method: {ex.Message}");
+                throw; 
+            }
         }
     }
 }

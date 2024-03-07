@@ -10,5 +10,7 @@ namespace Base_code.Application.Interfaces.Abstract
     {
         T Data { get; }
         string Message { get; }
+        public int totalItems { get; }
+
     }
 }

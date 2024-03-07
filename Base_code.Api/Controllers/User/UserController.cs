@@ -15,14 +15,14 @@ namespace Base_code.Api.Controllers.User
             _service = service;
         }
         [HttpGet]
-        public IActionResult Items(int page=1,int pageSize=10,string? search="")
+        public IActionResult Get(int page=1,int pageSize=10,string? search="")
         {
             return Ok(_service.Items(page,pageSize,search));
         }
         [HttpPost]
         public IActionResult Create(UserDto dto)
         {
-            return Ok(_service.Create(dto));
+            return Ok(_service.Created(dto));
         }
     }
 }
