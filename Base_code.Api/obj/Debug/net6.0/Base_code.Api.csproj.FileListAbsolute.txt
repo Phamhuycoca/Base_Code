@@ -81,3 +81,7 @@ F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Base_code.Domain.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Base_code.Infrastructure.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Base_code.Infrastructure.pdb
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Base_code.Domain.pdb
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\AutoMapper.dll
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\MediatR.dll
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\MediatR.Contracts.dll
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

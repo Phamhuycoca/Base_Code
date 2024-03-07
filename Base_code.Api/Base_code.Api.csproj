@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Base_code.Infrastructure\Base_code.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

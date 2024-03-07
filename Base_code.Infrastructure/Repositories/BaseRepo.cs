@@ -11,72 +11,76 @@ namespace Base_code.Infrastructure.Repositories
 {
     public class BaseRepo<T> : IBaseRepo<T> where T : class, new()
     {
-        public readonly Base_Context _context;
-        public DbSet<T> _dbSet { get; set; }
-
+        private readonly Base_Context _context;
+        DbSet<T> _dbSet;
         public BaseRepo(Base_Context context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
-        public virtual T? Get(string id)
-        {
-            return _dbSet.Find(id);
-        }
-
-        public virtual List<T> GetAll()
+        public List<T> ListData()
         {
             return _dbSet.ToList();
         }
-
-        public virtual void Update(T entity)
+        public T GetById(long id)
         {
-            _dbSet.Update(entity);
-            _context.SaveChanges();
-
+            return _dbSet.Find(id);
         }
-        public virtual void Create(T entity)
+        public bool Create(T entity)
         {
-            _dbSet.Add(entity);
-            _context.SaveChanges();
-
-        }
-
-        public virtual void Create(List<T> listEntity)
-        {
-            _dbSet.AddRange(listEntity);
-            _context.SaveChanges();
-        }
-        public virtual void Delete(string id)
-        {
-            T entity = _dbSet.Find(id) ?? new T();
-            _dbSet.Remove(entity);
-            _context.SaveChanges();
-
-        }
-
-        public virtual void Delete(T entity)
-        {
-            _dbSet.Remove(entity);
-            _context.SaveChanges();
-        }
-
-        public virtual void Delete(List<string> listEntity)
-        {
-            foreach (var item in listEntity)
+            if (!_dbSet.Any(e => e == entity))
             {
-                Delete(item);
+                _dbSet.Add(entity);
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool Update(T entity)
+        {
+            var entry = _context.Entry(entity);
+            if (entry.State == EntityState.Detached)
+            {
+                var existingEntity = _dbSet.Find(GetKeyValues(entity).ToArray());
+                if (existingEntity == null)
+                {
+                    return false;
+                }
+                _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return true;
+        }
+        private IEnumerable<object> GetKeyValues(T entity)
+        {
+            var keyProperties = _context.Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties;
+            foreach (var property in keyProperties)
+            {
+                yield return property.PropertyInfo.GetValue(entity);
             }
         }
-
-        public virtual void Delete(List<T> listEntity)
+        public bool Delete(long id)
         {
-            foreach (var item in listEntity)
+            var category = _dbSet.Find(id);
+            if (category == null)
             {
-                Delete(item);
+                return false;
             }
+            _dbSet.Remove(category);
+            _context.SaveChanges();
+            return true;
         }
 
-
+        public List<T> Search(string search)
+        {
+            return _dbSet.Where(x => x.ToString().Contains(search)).ToList();
+        }
     }
 }

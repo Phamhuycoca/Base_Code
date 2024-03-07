@@ -9,16 +9,12 @@ namespace Base_code.Domain.Repositories
 {
     public interface IBaseRepo<T> where T : class
     {
-        public DbSet<T> _dbSet { get; set; }
-        T? Get(string id);
-        List<T> GetAll();
-        void Create(T entity);
-        void Create(List<T> listEntity);
-        void Update(T entity);
-        void Delete(string id);
-        void Delete(T entity);
-        void Delete(List<string> listEntity);
-        void Delete(List<T> listEntity);
+        List<T> ListData();
+        T GetById(long id);
+        bool Create(T entity);
+        bool Update(T entity);
+        bool Delete(long id);
+        List<T> Search(string search);
 
     }
 }

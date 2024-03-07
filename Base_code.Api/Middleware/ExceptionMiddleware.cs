@@ -1,5 +1,4 @@
 ﻿using Base_code.Api.Exceptions;
-using Base_code.Application.Exceptions;
 using Base_code.Application.Interfaces.Concrete;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
