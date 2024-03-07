@@ -1,0 +1,14 @@
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.csproj.AssemblyReference.cache
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.AssemblyInfoInputs.cache
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.AssemblyInfo.cs
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.csproj.CoreCompileInputs.cache
+F:\Base_Code\Base_code\Base_code.Application\bin\Debug\net6.0\Base_code.Application.deps.json
+F:\Base_Code\Base_code\Base_code.Application\bin\Debug\net6.0\Base_code.Application.runtimeconfig.json
+F:\Base_Code\Base_code\Base_code.Application\bin\Debug\net6.0\Base_code.Application.dll
+F:\Base_Code\Base_code\Base_code.Application\bin\Debug\net6.0\Base_code.Application.pdb
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.dll
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\refint\Base_code.Application.dll
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.pdb
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\Base_code.Application.genruntimeconfig.cache
+F:\Base_Code\Base_code\Base_code.Application\obj\Debug\net6.0\ref\Base_code.Application.dll

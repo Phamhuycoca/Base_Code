@@ -1,0 +1,14 @@
+F:\Base_Code\Base_code\Base_code.Domain\bin\Debug\net6.0\Base_code.Domain.deps.json
+F:\Base_Code\Base_code\Base_code.Domain\bin\Debug\net6.0\Base_code.Domain.runtimeconfig.json
+F:\Base_Code\Base_code\Base_code.Domain\bin\Debug\net6.0\Base_code.Domain.dll
+F:\Base_Code\Base_code\Base_code.Domain\bin\Debug\net6.0\Base_code.Domain.pdb
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.csproj.AssemblyReference.cache
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.AssemblyInfoInputs.cache
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.AssemblyInfo.cs
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.csproj.CoreCompileInputs.cache
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.dll
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\refint\Base_code.Domain.dll
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.pdb
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\Base_code.Domain.genruntimeconfig.cache
+F:\Base_Code\Base_code\Base_code.Domain\obj\Debug\net6.0\ref\Base_code.Domain.dll

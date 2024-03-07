@@ -1,0 +1,14 @@
+F:\Base_Code\Base_code\Base_code.Infrastructure\bin\Debug\net6.0\Base_code.Infrastructure.deps.json
+F:\Base_Code\Base_code\Base_code.Infrastructure\bin\Debug\net6.0\Base_code.Infrastructure.runtimeconfig.json
+F:\Base_Code\Base_code\Base_code.Infrastructure\bin\Debug\net6.0\Base_code.Infrastructure.dll
+F:\Base_Code\Base_code\Base_code.Infrastructure\bin\Debug\net6.0\Base_code.Infrastructure.pdb
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.csproj.AssemblyReference.cache
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.AssemblyInfoInputs.cache
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.AssemblyInfo.cs
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.csproj.CoreCompileInputs.cache
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.dll
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\refint\Base_code.Infrastructure.dll
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.pdb
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\Base_code.Infrastructure.genruntimeconfig.cache
+F:\Base_Code\Base_code\Base_code.Infrastructure\obj\Debug\net6.0\ref\Base_code.Infrastructure.dll
