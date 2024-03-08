@@ -31,6 +31,9 @@
               "F:\\Base_Code\\Base_code\\Base_code.Application\\Base_code.Application.csproj": {
                 "projectPath": "F:\\Base_Code\\Base_code\\Base_code.Application\\Base_code.Application.csproj"
               },
+              "F:\\Base_Code\\Base_code\\Base_code.Domain\\Base_code.Domain.csproj": {
+                "projectPath": "F:\\Base_Code\\Base_code\\Base_code.Domain\\Base_code.Domain.csproj"
+              },
               "F:\\Base_Code\\Base_code\\Base_code.Infrastructure\\Base_code.Infrastructure.csproj": {
                 "projectPath": "F:\\Base_Code\\Base_code\\Base_code.Infrastructure\\Base_code.Infrastructure.csproj"
               }
@@ -50,6 +53,10 @@
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.26.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.27, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

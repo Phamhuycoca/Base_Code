@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base_code.Application.Dto
+namespace Base_code.Application.Dto.UserDto
 {
     public class UserDto
     {
@@ -14,7 +14,7 @@ namespace Base_code.Application.Dto
         public string FullName { get; set; }
         public bool Gender { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        //public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string Avatar { get; set; }
         public string Address { get; set; }

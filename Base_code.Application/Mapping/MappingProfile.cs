@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Base_code.Application.Dto;
+using Base_code.Application.Dto.UserDto;
 using Base_code.Domain.Entities;
 using System;
 using System.Collections.Generic;

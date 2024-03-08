@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Base_code.Application.Common;
-using Base_code.Application.Dto;
+using Base_code.Application.Dto.UserDto;
 using Base_code.Application.Interfaces.Abstract;
 using Base_code.Application.Interfaces.Concrete;
 using Base_code.Application.IServices;
@@ -30,13 +30,12 @@ namespace Base_code.Application.Services
         public DataResponse<UserDto> Created(UserDto user)
         {
             var obj = _mapper.Map<User>(user);
+            obj.Password = "12345678a";
             obj.createdAt = DateTime.Today.AddDays(1).AddHours(now.Hour).AddMinutes(now.Minute).AddSeconds(now.Second);
             _repo.Create(obj);
             var createdUserDto = _mapper.Map<UserDto>(obj);
             return new DataResponse<UserDto>(createdUserDto, 200, HttpStatusMessages.AddedSuccesfully);
         }
-
-
 
         public void Delete(long id)
         {

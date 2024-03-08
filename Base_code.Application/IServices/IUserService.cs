@@ -1,5 +1,5 @@
 ﻿using Base_code.Application.Common;
-using Base_code.Application.Dto;
+using Base_code.Application.Dto.UserDto;
 using Base_code.Application.Interfaces.Abstract;
 using Base_code.Application.Interfaces.Concrete;
 using System;

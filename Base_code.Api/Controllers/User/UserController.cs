@@ -1,7 +1,10 @@
-﻿using Base_code.Application.Dto;
+﻿using Base_code.Api.Base;
+using Base_code.Application.Common;
+using Base_code.Application.Dto.UserDto;
 using Base_code.Application.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Base_code.Api.Controllers.User
 {
@@ -15,10 +18,19 @@ namespace Base_code.Api.Controllers.User
             _service = service;
         }
         [HttpGet]
-        public IActionResult Get(int page=1,int pageSize=10,string? search="")
+        public IActionResult Get(int page = 1, int pageSize = 10, string? search = "")
         {
-            return Ok(_service.Items(page,pageSize,search));
+            try
+            {
+                var result = _service.Items(page, pageSize, search);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
         [HttpPost]
         public IActionResult Create(UserDto dto)
         {

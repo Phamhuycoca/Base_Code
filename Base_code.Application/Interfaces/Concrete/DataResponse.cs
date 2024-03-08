@@ -32,7 +32,6 @@ namespace Base_code.Application.Interfaces.Concrete
             Data = data;
             StatusCode = statuscode;
             Message = message;
-
         }
     }
 }
