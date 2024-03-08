@@ -13,6 +13,8 @@ namespace Base_code.Application.Mapping
     {
         public MappingProfile()
         {
+            //User
+            CreateMap<User, CreateUserDto>().ReverseMap();
             CreateMap<User, UserDto>().ReverseMap();
         }
     }

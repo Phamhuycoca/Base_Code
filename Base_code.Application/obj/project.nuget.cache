@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5UoRrLd3F7hDUbRM+YtRpVVAp4+8wLWQq3O3MneQ1gXyH0RHZe9HHs1ztwlHII2yGzFv08zVz/LC+EXCgQdLUA==",
+  "dgSpecHash": "YhIVD0o1lVSCtQNUtou1EY8ZLQfeilWmPlXjGWmHXZ+llRYYkURVnexlzzcJdVrPMYMWT12sUFV1IAkwmF6cYQ==",
   "success": true,
   "projectFilePath": "F:\\Base_Code\\Base_code\\Base_code.Application\\Base_code.Application.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

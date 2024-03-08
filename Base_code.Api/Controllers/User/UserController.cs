@@ -1,10 +1,8 @@
-﻿using Base_code.Api.Base;
-using Base_code.Application.Common;
+﻿using Base_code.Application.Common;
 using Base_code.Application.Dto.UserDto;
-using Base_code.Application.IServices;
-using Microsoft.AspNetCore.Http;
+using Base_code.Application.IService;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
+using System.Collections.Generic;
 
 namespace Base_code.Api.Controllers.User
 {
@@ -13,12 +11,14 @@ namespace Base_code.Api.Controllers.User
     public class UserController : ControllerBase
     {
         private readonly IUserService _service;
+
         public UserController(IUserService service)
         {
             _service = service;
         }
+
         [HttpGet]
-        public IActionResult Get(int page = 1, int pageSize = 10, string? search = "")
+        public IActionResult Get(int page = 1, int pageSize = 1, string? search = "")
         {
             try
             {
@@ -30,9 +30,8 @@ namespace Base_code.Api.Controllers.User
                 return BadRequest(ex.Message);
             }
         }
-
         [HttpPost]
-        public IActionResult Create(UserDto dto)
+        public IActionResult Create(CreateUserDto dto)
         {
             return Ok(_service.Created(dto));
         }

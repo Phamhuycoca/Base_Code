@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9j96Ub4Puj4O9eFEm9u/ThH4PUlYmv6B84GfuIx0pQv2IlnetXtbZ/F385Z/twEhCvhwTbOZhqceI6Dy9HgPtg==",
+  "dgSpecHash": "jr5d563MH+VEaBrw1cv+Px2cK5AyRbnnXiYyhOOXFhSOibO79cmB8spwN5iDEJVoBbdJ7xTGz+gMtZdMKM452Q==",
   "success": true,
   "projectFilePath": "F:\\Base_Code\\Base_code\\Base_code.Api\\Base_code.Api.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.27\\microsoft.aspnetcore.authentication.jwtbearer.6.0.27.nupkg.sha512",

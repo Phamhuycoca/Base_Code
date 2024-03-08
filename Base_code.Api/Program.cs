@@ -1,5 +1,4 @@
-﻿using Base_code.Api.Middleware;
-using Base_code.Domain.Entities;
+﻿using Base_code.Domain.Entities;
 using Base_code.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -8,6 +7,9 @@ using Base_code.Application.Modules;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using Base_code.Domain.Exceptions;
+using Base_code.Application.Service;
+using log4net;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -49,7 +51,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-
+builder.Services.AddSingleton<ILog>(log => LogManager.GetLogger(typeof(UserService)));
 //ConnectStrings
 builder.Services.AddDbContext<Base_Context>(option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("Base_Context")));
@@ -94,10 +96,6 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
-builder.Services.Configure<ApiBehaviorOptions>(options =>
-{
-    options.SuppressModelStateInvalidFilter = true;
-});
 
 
 // Configure the HTTP request pipeline.

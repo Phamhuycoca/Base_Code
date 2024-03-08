@@ -87,3 +87,4 @@ F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\MediatR.Contracts.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\log4net.dll

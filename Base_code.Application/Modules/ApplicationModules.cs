@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Base_code.Infrastructure.Modules;
-using Base_code.Application.Services;
-using Base_code.Application.IServices;
+using Base_code.Application.IService;
+using Base_code.Application.Service;
 
 namespace Base_code.Application.Modules
 {
