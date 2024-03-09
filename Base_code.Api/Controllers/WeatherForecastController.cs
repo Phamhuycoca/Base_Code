@@ -1,6 +1,7 @@
 ﻿using Base_code.Application.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Base_code.Api.Controllers
 {
@@ -25,11 +26,11 @@ namespace Base_code.Api.Controllers
         {
             return Ok("ok");
         }
-        [Authorize(Roles = "User")]
         [HttpGet]
         public IActionResult GetUser(int id, int limit, string? keyword)
         {
-            return Ok("GetUser");
+            var user =HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return Ok(user);
         }
     }
 }

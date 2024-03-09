@@ -20,11 +20,12 @@ namespace Base_code.Application.Interfaces.Concrete
         public int totalItems { get; }
 
         [JsonConstructor]
-        public DataResponse(T data, int statuscode)
+        public DataResponse(T data, int totalItems, int statuscode, string message)
         {
-            //this.totalItems = totalItems;
+            this.totalItems = totalItems;
             Data = data;
             StatusCode = statuscode;
+            Message = message;
         }
 
         public DataResponse(T data, int statuscode, string message)

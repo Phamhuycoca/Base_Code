@@ -22,7 +22,6 @@ namespace Base_code.Application.Modules
         {
             var assm = Assembly.GetExecutingAssembly();
             services.AddValidatorsFromAssembly(assm);
-
             services.AddInfrastructureModule();
             var mapperConfig = new MapperConfiguration(mc =>
             {

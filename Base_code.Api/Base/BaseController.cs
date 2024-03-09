@@ -8,19 +8,45 @@ namespace Base_code.Api.Base
     [ApiController]
     public class BaseController : ControllerBase
     {
-        protected long? UserId
+        protected readonly ILogger<BaseController> _logger;
+
+        public BaseController(ILogger<BaseController> logger)
         {
-            get
+            _logger = logger;
+        }
+        protected IActionResult ApiResponse(object data, string message = null)
+        {
+            var response = new
             {
-                var userIdClaim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                Success = true,
+                Data = data,
+                Message = message
+            };
 
-                if (userIdClaim != null && long.TryParse(userIdClaim, out var userId))
-                {
-                    return userId;
-                }
+            return Ok(response);
+        }
 
-                return null;
-            }
+        protected IActionResult ApiError(string message, int statusCode = 500)
+        {
+            var response = new
+            {
+                Success = false,
+                Message = message
+            };
+
+            return StatusCode(statusCode, response);
+        }
+        protected IActionResult ApiResponseList(List<object> data,int count,string message=null)
+        {
+            var response = new
+            {
+                totalItems=count,
+                Success = true,
+                Data = data,
+                Message = message
+            };
+
+            return Ok(response);
         }
     }
 }

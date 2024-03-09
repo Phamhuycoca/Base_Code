@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace Base_code.Application.Features.User.Validators
 {
-    public class UserValidator : AbstractValidator<LoginDto>
+    public class UserValidator : AbstractValidator<CreateUserDto>
     {
         public UserValidator()
         {
-            RuleFor(x => x.Email).NotEmpty().Matches(Regex.RegexEmail).WithMessage("Email khong hop le.");
+            RuleFor(x => x.Email).NotEmpty().EmailAddress().WithMessage("Email Không đúng định dạng.");
+          
         }
     }
 }

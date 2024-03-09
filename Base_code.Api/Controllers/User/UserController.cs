@@ -1,4 +1,5 @@
-﻿using Base_code.Application.Common;
+﻿using Base_code.Api.Base;
+using Base_code.Application.Common;
 using Base_code.Application.Dto.Auth;
 using Base_code.Application.Dto.UserDto;
 using Base_code.Application.IService;
@@ -21,8 +22,7 @@ namespace Base_code.Api.Controllers.User
         [HttpPost]
         public IActionResult Create(CreateUserDto dto)
         {
-            _userService.Create(dto);
-            return Ok();
+                return Ok(_userService.Create(dto));
         }
         [HttpPost("Login")]
         public IActionResult CreateD(LoginDto dto)
@@ -33,6 +33,19 @@ namespace Base_code.Api.Controllers.User
                 Password = dto.Password
             };
             return Ok(_authService.Login(dto));
+        }
+        [HttpGet]
+        public IActionResult GetItems(int page=1,int sizePage=10,string? search="")
+        {
+            try
+            {
+                var data = _userService.Items(page,sizePage,search);
+                return Ok(data);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
