@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Base_code.Domain.Settings
+namespace Base_code.Application.Common
 {
     public class JWTSettings
     {

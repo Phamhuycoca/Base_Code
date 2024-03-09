@@ -7,15 +7,28 @@ using Base_code.Application.Modules;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using Base_code.Domain.Exceptions;
-using Base_code.Application.Service;
 using log4net;
+using Base_code.Api.Services.Extensions;
+using Base_code.Api.Services.Filters;
+using FluentValidation.AspNetCore;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
+using Base_code.Application.Common;
+using Serilog;
+using Serilog.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+/*builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(typeof(ValidationFilter));
+}).AddFluentValidation();
+
+*/
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationModules();
@@ -45,13 +58,21 @@ builder.Services.AddSwaggerGen(c =>
                         Id = "Bearer"
                     }
                 },
-                new string[]{}
-            }
+            new string[]{}
+        }
         });
 });
 
+builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
+builder.Services.ConfigureAuth(builder.Configuration);
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 
-builder.Services.AddSingleton<ILog>(log => LogManager.GetLogger(typeof(UserService)));
+
+
+
 //ConnectStrings
 builder.Services.AddDbContext<Base_Context>(option =>
 option.UseSqlServer(builder.Configuration.GetConnectionString("Base_Context")));
@@ -98,13 +119,24 @@ using (var scope = app.Services.CreateScope())
 }
 
 
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCustomExceptionMiddleware();
 
+app.UseAuthentication();
+app.UseCors(builder =>
+{
+    builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+});
 app.UseAuthorization();
 
 app.MapControllers();

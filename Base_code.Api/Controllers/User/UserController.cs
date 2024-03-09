@@ -1,4 +1,5 @@
 ﻿using Base_code.Application.Common;
+using Base_code.Application.Dto.Auth;
 using Base_code.Application.Dto.UserDto;
 using Base_code.Application.IService;
 using Microsoft.AspNetCore.Mvc;
@@ -10,30 +11,28 @@ namespace Base_code.Api.Controllers.User
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _service;
-
-        public UserController(IUserService service)
+        private readonly IUserService _userService;
+        private readonly IAuthService _authService;
+        public UserController(IUserService userService, IAuthService authService)
         {
-            _service = service;
-        }
-
-        [HttpGet]
-        public IActionResult Get(int page = 1, int pageSize = 1, string? search = "")
-        {
-            try
-            {
-                var result = _service.Items(page, pageSize, search);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            _userService = userService;
+            _authService = authService;
         }
         [HttpPost]
         public IActionResult Create(CreateUserDto dto)
         {
-            return Ok(_service.Created(dto));
+            _userService.Create(dto);
+            return Ok();
+        }
+        [HttpPost("Login")]
+        public IActionResult CreateD(LoginDto dto)
+         {
+            LoginDto lg = new LoginDto()
+            {
+                Email = dto.Email,
+                Password = dto.Password
+            };
+            return Ok(_authService.Login(dto));
         }
     }
 }

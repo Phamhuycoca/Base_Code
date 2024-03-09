@@ -7,8 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Base_code.Infrastructure.Modules;
-using Base_code.Application.IService;
+using FluentValidation;
+using System.Reflection;
 using Base_code.Application.Service;
+using Base_code.Application.IService;
+using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace Base_code.Application.Modules
 {
@@ -16,6 +20,9 @@ namespace Base_code.Application.Modules
     {
         public static IServiceCollection AddApplicationModules(this IServiceCollection services)
         {
+            var assm = Assembly.GetExecutingAssembly();
+            services.AddValidatorsFromAssembly(assm);
+
             services.AddInfrastructureModule();
             var mapperConfig = new MapperConfiguration(mc =>
             {
@@ -24,6 +31,8 @@ namespace Base_code.Application.Modules
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITokenService, TokenService>();
             return services;
         }
     }

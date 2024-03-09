@@ -88,3 +88,5 @@ F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.Extensions.Depen
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\log4net.dll
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+F:\Base_Code\Base_code\Base_code.Api\bin\Debug\net6.0\Serilog.dll
